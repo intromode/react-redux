@@ -1,7 +1,6 @@
 import { createStore } from 'redux';
 import { addDrink, addChips, addSandwich } from './directory/lunchActions';
 
-
 const initialState = {
   drink: null,
   sandwich: null,
@@ -25,7 +24,7 @@ function reducer(state = initialState, action) {
 
 
 
-const store = createStore(reducer);
+export const store = createStore(reducer);
 
 store.dispatch(addDrink('juice'));
 console.log('added a drink', store.getState());
