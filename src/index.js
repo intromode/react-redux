@@ -7,6 +7,25 @@ const initialState = {
   chips: null
 };
 
+//have to be before you make your reducer function. dont get why though since i thought functions were hoisted?
+const ADD_DRINK = 'ADD_DRINK';
+const addDrink = drink => ({
+  type: ADD_DRINK,
+  payload: drink
+});
+
+const ADD_SANDWICH = 'ADD_SANDWICH';
+const addSandwich = sandwich => ({
+  type: ADD_SANDWICH,
+  payload: sandwich
+});
+
+const ADD_CHIPS = 'ADD_CHIPS';
+const addChips = chips => ({
+  type: ADD_CHIPS,
+  payload: chips
+});
+
 
 
 function reducer(state = initialState, action) {
@@ -26,44 +45,17 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
-//GO OVER HIS WAY OF SUBBING AND WHY 
-// const mySubscribe = store.subscribe(() => {
-//   console.log('STORE UPDATED');
-// });
-
-const ADD_DRINK = 'ADD_DRINK';
-store.dispatch({
-  type: ADD_DRINK,
-  payload: 'juice'
-});
+store.dispatch(addDrink('juice'));
 console.log('added a drink', store.getState());
 
-const ADD_SANDWICH = 'ADD_SANDWICH';
-store.dispatch({
-  type: ADD_SANDWICH,
-  payload: 'veggie'
-});
+store.dispatch(addSandwich('veggie'));
 console.log('added a sandwich', store.getState());
 
-const ADD_CHIPS = 'ADD_CHIPS';
-store.dispatch({
-  type: ADD_CHIPS,
-  payload: 'salt and vinegar'
-});
+store.dispatch(addChips('salt and vinegar'));
 console.log('added chips', store.getState());
 
 
 
 
 
-// const ADD_DRINK = 'ADD_DRINK';
-// const addDrink = drink => ({
-//   type: ADD_DRINK,
-//   payload: drink
-// });
 
-// const ADD_SANDWICH = 'ADD_SANDWICH';
-// const addSandwich = sandwich => ({
-//   type: ADD_SANDWICH,
-//   payload: sandwich
-// });
