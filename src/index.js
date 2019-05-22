@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import { addDrink, addChips, addSandwich } from './directory/lunchActions';
 
 
 const initialState = {
@@ -8,33 +9,14 @@ const initialState = {
 };
 
 //have to be before you make your reducer function. dont get why though since i thought functions were hoisted?
-const ADD_DRINK = 'ADD_DRINK';
-const addDrink = drink => ({
-  type: ADD_DRINK,
-  payload: drink
-});
-
-const ADD_SANDWICH = 'ADD_SANDWICH';
-const addSandwich = sandwich => ({
-  type: ADD_SANDWICH,
-  payload: sandwich
-});
-
-const ADD_CHIPS = 'ADD_CHIPS';
-const addChips = chips => ({
-  type: ADD_CHIPS,
-  payload: chips
-});
-
-
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case ADD_DRINK:
+    case 'ADD_DRINK':
       return { ...state, drink: action.payload };
-    case ADD_SANDWICH:
+    case 'ADD_SANDWICH':
       return { ...state, sandwich: action.payload };
-    case ADD_CHIPS:
+    case 'ADD_CHIPS':
       return { ...state, chips: action.payload };
     default:
       return state;
