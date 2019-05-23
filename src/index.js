@@ -1,6 +1,8 @@
 import { createStore } from 'redux';
 import { addPost, deletePost } from './actions/postActions';
 import { reducer } from './reducers/postReducer';
+import { getPosts, getPost } from './selectors/postSelectors';
+
 
 
 const store = createStore(reducer);
@@ -15,6 +17,8 @@ store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performan
 store.dispatch(addPost('phone', 'fjdkfjsdklfjjdkl'));
 
 store.dispatch(addPost('betwice', 'ha, hilarioussss'));
+console.log('testing 123', getPost(store.getState(), 1));
+
 
 store.dispatch(deletePost(1));
 
