@@ -1,18 +1,7 @@
 import { createStore } from 'redux';
 import { addPost, deletePost } from './actions/postActions';
+import { reducer } from './reducers/postReducer';
 
-const initialState = [];
-
-function reducer(state = initialState, action) {
-  switch(action.type) {
-    case 'ADD_POST':
-      return [...state, { title: action.title, body: action.body }];
-    case 'DELETE_POST':
-      return { title: null, body: null };
-    default:
-      return state;
-  }
-}
 
 const store = createStore(reducer);
 
