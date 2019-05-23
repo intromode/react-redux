@@ -10,4 +10,11 @@ describe('testing post actions', () => {
       body:'there was once a water bottle that...',
     });
   });
+  it('tests the deletePost action', () => {
+    const deleteMe = deletePost(4);
+    expect(deleteMe).toEqual({
+      type: 'DELETE_POST',
+      index: 4
+    });
+  });
 });
