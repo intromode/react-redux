@@ -1,11 +1,15 @@
 const initialState = [];
 
+[{}, {}, {}]
+//index = 1
+[{}, {}];
+
 export function reducer(state = initialState, action) {
   switch(action.type) {
     case 'ADD_POST':
       return [...state, { title: action.title, body: action.body }];
     case 'DELETE_POST':
-      return { title: null, body: null };
+      return [...state.slice(0, action.index), ...state.slice(action.index + 1)];
     default:
       return state;
   }

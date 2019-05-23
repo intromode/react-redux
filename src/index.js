@@ -15,5 +15,7 @@ store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performan
 
 store.dispatch(addPost('phone', 'fjdkfjsdklfjjdkl'));
 
-store.dispatch(deletePost());
+store.dispatch(addPost('betwice', 'ha, hilarioussss'));
+
+store.dispatch(deletePost(1));
 
