@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { addPost } from './actions/postActions';
+import { addPost, deletePost } from './actions/postActions';
 
 const initialState = {
   title: null,
@@ -22,4 +22,5 @@ const store = createStore(reducer);
 store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performance beaming. wash over me with light! freeing.'));
 console.log('made a post', store.getState());
 
-// store.dispatch(deletePost());
+store.dispatch(deletePost());
+console.log('deleted post', store.getState());

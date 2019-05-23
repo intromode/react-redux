@@ -4,7 +4,7 @@ export const addPost = (title, body) => ({
   body: body
 });
 
-//needs to know which post to delete
+//needs to know which post to delete??
 export const deletePost = () => ({
   type: 'DELETE_POST',
   title: null,
