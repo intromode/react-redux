@@ -1,9 +1,5 @@
 const initialState = [];
 
-[{}, {}, {}]
-//index = 1
-[{}, {}];
-
 export function reducer(state = initialState, action) {
   switch(action.type) {
     case 'ADD_POST':

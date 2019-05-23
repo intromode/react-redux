@@ -4,7 +4,6 @@ import { reducer } from './reducers/postReducer';
 
 
 const store = createStore(reducer);
-console.log(addPost('title', 'body'));
 
 function handleChange() {
   console.log(store.getState());
