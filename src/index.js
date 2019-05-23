@@ -16,12 +16,14 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
+function handleChange() {
+  console.log(store.getState());
+}
+store.subscribe(handleChange);
+
 store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performance beaming. wash over me with light! freeing.'));
-console.log('made a post', store.getState());
 
 store.dispatch(addPost('phone', 'fjdkfjsdklfjjdkl'));
-console.log('made phone post', store.getState());
 
 store.dispatch(deletePost());
-console.log('deleted post', store.getState());
 
