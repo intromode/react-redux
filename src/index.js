@@ -1,24 +1,17 @@
-import { createStore } from 'redux';
-import { addPost, deletePost } from './actions/postActions';
-import { reducer } from './reducers/postReducer';
-import { getPosts, getPost } from './selectors/postSelectors';
+//index calls app, app calls allPosts which connects to allposts to redux, allPosts uses Posts, Posts uses Post.
 
 
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from '../src/components/App';
 
-const store = createStore(reducer);
-
-function handleChange() {
-  console.log(store.getState());
-}
-store.subscribe(handleChange);
-
-store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performance beaming. wash over me with light! freeing.'));
-
-store.dispatch(addPost('phone', 'fjdkfjsdklfjjdkl'));
-
-store.dispatch(addPost('betwice', 'ha, hilarioussss'));
-console.log('testing 123', getPost(store.getState(), 1));
-
-
-store.dispatch(deletePost(1));
-
+//provider allows us to pass store onto every component without having to explicitly pass it to each one as a prop
+//so, totally dont need it but its convenient
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
