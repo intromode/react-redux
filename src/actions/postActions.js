@@ -1,7 +1,7 @@
 export const addPost = (title, body) => ({
   type: 'ADD_POST',
   title: title,
-  body: body
+  body: body,
 });
 
 //needs to know which post to delete??
@@ -10,3 +10,5 @@ export const deletePost = () => ({
   title: null,
   body: null
 });
+
+
