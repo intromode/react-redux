@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { ADD_POST, DELETE_POST } from './actions/postActions';
+import { addPost } from './actions/postActions';
 
 const initialState = {
   title: null,
@@ -9,7 +9,7 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch(action.type) {
     case 'ADD_POST':
-      return { ...state, title: action.title };
+      return { ...state, title: action.title, body: action.body };
     case 'DELETE_POST':
       return { title: null, body: null };
     default:
@@ -19,6 +19,7 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
-store.dispatch(ADD_POST('sway-yay', 'swaying, fleeing, flinging, circus performance beaming, wash over me with light, freeing.'));
+store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performance beaming. wash over me with light! freeing.'));
+console.log('made a post', store.getState());
 
-store.dispatch(DELETE_POST());
+// store.dispatch(deletePost());
