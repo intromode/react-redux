@@ -1,8 +1,24 @@
-import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import { createStore } from 'redux';
+import { addPost, deletePost } from './actions/postActions';
+import { reducer } from './reducers/postReducer';
+import { getPosts, getPost } from './selectors/postSelectors';
 
-render(
-  <App />,
-  document.getElementById('root')
-);
+
+
+const store = createStore(reducer);
+
+function handleChange() {
+  console.log(store.getState());
+}
+store.subscribe(handleChange);
+
+store.dispatch(addPost('sway-yay', 'swaying, fleeing, flinging, circus performance beaming. wash over me with light! freeing.'));
+
+store.dispatch(addPost('phone', 'fjdkfjsdklfjjdkl'));
+
+store.dispatch(addPost('betwice', 'ha, hilarioussss'));
+console.log('testing 123', getPost(store.getState(), 1));
+
+
+store.dispatch(deletePost(1));
+
