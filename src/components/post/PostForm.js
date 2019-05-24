@@ -24,7 +24,7 @@ export default class PostForm extends PureComponent{
     //returning title and body so that when we submit the form, we can grab the state and then pass it along to Posts to make a post 
     const { title, body } = this.state;
 
-    //so we pass title and body to onSubmit function thats passed to us
+    //buttons is clicked. which calls onSubmit, onSubmit dispatches the addPost action, which is handled in store.js
     this.onSubmit(title, body);
   }
 
