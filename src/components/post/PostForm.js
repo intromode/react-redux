@@ -16,7 +16,7 @@ export default class PostForm extends PureComponent{
   }
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value })
+    this.setState({ [target.name]: target.value });
   }
 
   handleSubmit = event => {
@@ -24,10 +24,9 @@ export default class PostForm extends PureComponent{
     //returning title and body so that when we submit the form, we can grab the state and then pass it along to Posts to make a post 
     const { title, body } = this.state;
 
-    //buttons is clicked. which calls onSubmit, onSubmit dispatches the addPost action, which is handled in store.js
-    this.onSubmit(title, body);
+    //buttons is clicked. which calls onSubmit, onSubmit dispatches the addPost action, which is handled in...store..but now not store idk 
+    this.props.onSubmit(title, body);
   }
-
   render() {
     return (
       <>
